@@ -3,10 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Website</title>
+  <title>RedactedRifle</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: url('https://raw.githubusercontent.com/m-bogu/redacted-site/refs/heads/main/assets/background.jpg') center/cover no-repeat fixed;
+      color: white;
+      text-shadow: 0 2px 5px black;
+    }
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    h1 {
+      margin: 0 0 0.5em;
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.2rem;
+    }
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #00c3ff;
+      color: black;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    a.button:hover {
+      background: #009ec7;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is a blank starter page served from GitHub Pages.</p>
+  <div class="container">
+    <h1>RedactedRifle Systems</h1>
+    <p>Secure access portal</p>
+    <a class="button" href="https://glances.redactedrifle.com" target="_blank">Dashboard Login</a>
+  </div>
 </body>
 </html>
