@@ -3,99 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RedactedRifle</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
+  <title>RedactedRifle Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Space Grotesk', sans-serif;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .background {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      font-family: 'Titillium Web', sans-serif;
       background: url('https://raw.githubusercontent.com/m-bogu/redacted-site/main/assets/background.jpg') center/cover no-repeat fixed;
-      transition: all 0.5s ease;
-      z-index: 0;
-    }
-
-    body.hovering .background {
-      filter: brightness(60%) blur(6px);
-    }
-
-    .overlay {
-      position: relative;
-      z-index: 1;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      transition: filter 0.3s ease;
+      color: #eaeaea;
     }
 
-    .card {
-      background: rgba(15, 15, 15, 0.35);
-      padding: 2.5rem 3rem;
-      border-radius: 14px;
+    .overlay {
+      backdrop-filter: blur(0px);
+      transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+      padding: 3rem;
+      border-radius: 12px;
+      background-color: rgba(20, 20, 20, 0.6);
+    }
+
+    .overlay:hover {
+      backdrop-filter: blur(4px);
+      background-color: rgba(10, 10, 10, 0.8);
+    }
+
+    .container {
       text-align: center;
-      backdrop-filter: blur(25px);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-      transition: transform 0.25s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.015);
     }
 
     h1 {
-      font-size: 2.4rem;
-      margin-bottom: 2rem;
       font-weight: 600;
-      color: #e0e0e0;
-      letter-spacing: 0.02em;
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
     }
 
     a.button {
       display: inline-block;
-      padding: 0.75rem 1.6rem;
-      font-size: 1rem;
-      color: #e0e0e0;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      font-weight: 500;
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      background-color: #222;
+      color: #eaeaea;
+      border: 1px solid #444;
+      border-radius: 6px;
       text-decoration: none;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     a.button:hover {
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.3);
+      background-color: #444;
+      border-color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .overlay {
+        padding: 2rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="overlay" id="overlay">
-    <div class="card">
+  <div class="overlay">
+    <div class="container">
       <h1>RedactedRifle Systems</h1>
       <a class="button" href="https://glances.redactedrifle.com" target="_blank">Dashboard Login</a>
     </div>
   </div>
-
-  <script>
-    const overlay = document.getElementById('overlay');
-    overlay.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-    overlay.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-  </script>
 </body>
 </html>
