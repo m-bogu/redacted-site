@@ -5,51 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RedactedRifle</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Roboto, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100vh;
       background: url('https://raw.githubusercontent.com/m-bogu/redacted-site/main/assets/background.jpg') center/cover no-repeat fixed;
-      color: white;
-      text-shadow: 0 2px 5px black;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
     }
-    .container {
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0);
+      transition: background 0.4s ease;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.55);
+      padding: 2.5rem 3rem;
+      border-radius: 16px;
       text-align: center;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2rem;
-      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      transition: transform 0.2s ease;
     }
+
+    .overlay:hover ~ body::before {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .overlay:hover {
+      transform: scale(1.02);
+    }
+
     h1 {
-      margin: 0 0 0.5em;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
+      margin: 0 0 1.5rem;
+      letter-spacing: 0.5px;
     }
-    p {
-      font-size: 1.2rem;
-    }
+
     a.button {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background: #00c3ff;
-      color: black;
-      font-weight: bold;
-      border-radius: 8px;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      color: white;
+      background: #007acc;
       text-decoration: none;
-      transition: background 0.3s;
+      border-radius: 8px;
+      transition: background 0.25s ease;
+      font-weight: 500;
     }
+
     a.button:hover {
-      background: #009ec7;
+      background: #005fa3;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      a.button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="overlay">
     <h1>RedactedRifle Systems</h1>
-    <p>Secure access portal</p>
     <a class="button" href="https://glances.redactedrifle.com" target="_blank">Dashboard Login</a>
   </div>
 </body>
