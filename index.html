@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RedactedRifle Systems</title>
+  <title>[REDACTED]rifle Systems</title>
   <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -12,37 +12,51 @@
       padding: 0;
     }
 
-    body {
+    body, html {
+      height: 100%;
+      width: 100%;
       font-family: 'Titillium Web', sans-serif;
-      background: url('https://raw.githubusercontent.com/m-bogu/redacted-site/main/assets/background.jpg') center/cover no-repeat fixed;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: filter 0.3s ease;
-      color: #bfbfbf; /* Pale gray */
+      color: #bfbfbf;
+      overflow: hidden;
     }
 
-    body.blurred {
-      filter: blur(4px);
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://raw.githubusercontent.com/m-bogu/redacted-site/main/assets/background.jpg') center/cover no-repeat fixed;
+      transition: filter 0.4s ease;
+      z-index: 1;
+    }
+
+    .background.blurred {
+      filter: blur(6px);
     }
 
     .overlay {
-      backdrop-filter: blur(0px);
-      transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+      position: relative;
+      z-index: 2;
       padding: 3rem;
       border-radius: 12px;
       background-color: rgba(20, 20, 20, 0.6);
-      z-index: 10;
+      transition: background-color 0.3s ease;
     }
 
     .overlay:hover {
-      backdrop-filter: blur(4px);
       background-color: rgba(10, 10, 10, 0.8);
     }
 
     .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       text-align: center;
+      position: relative;
+      z-index: 3;
     }
 
     h1 {
@@ -83,27 +97,4 @@
     }
   </style>
   <script>
-    // Add blur to body when hovering over the overlay
-    document.addEventListener("DOMContentLoaded", () => {
-      const overlay = document.querySelector(".overlay");
-      const body = document.body;
-
-      overlay.addEventListener("mouseenter", () => {
-        body.classList.add("blurred");
-      });
-
-      overlay.addEventListener("mouseleave", () => {
-        body.classList.remove("blurred");
-      });
-    });
-  </script>
-</head>
-<body>
-  <div class="overlay">
-    <div class="container">
-      <h1>[REDACTED]rifle Systems</h1>
-      <a class="button" href="https://glances.redactedrifle.com" target="_blank">Dashboard Login</a>
-    </div>
-  </div>
-</body>
-</html>
+    document.addEventListener("DOMCo
