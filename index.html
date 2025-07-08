@@ -20,7 +20,11 @@
       align-items: center;
       justify-content: center;
       transition: filter 0.3s ease;
-      color: #eaeaea;
+      color: #bfbfbf; /* Pale gray */
+    }
+
+    body.blurred {
+      filter: blur(4px);
     }
 
     .overlay {
@@ -29,6 +33,7 @@
       padding: 3rem;
       border-radius: 12px;
       background-color: rgba(20, 20, 20, 0.6);
+      z-index: 10;
     }
 
     .overlay:hover {
@@ -52,7 +57,7 @@
       margin-top: 2rem;
       padding: 0.75rem 2rem;
       background-color: #222;
-      color: #eaeaea;
+      color: #bfbfbf;
       border: 1px solid #444;
       border-radius: 6px;
       text-decoration: none;
@@ -77,11 +82,26 @@
       }
     }
   </style>
+  <script>
+    // Add blur to body when hovering over the overlay
+    document.addEventListener("DOMContentLoaded", () => {
+      const overlay = document.querySelector(".overlay");
+      const body = document.body;
+
+      overlay.addEventListener("mouseenter", () => {
+        body.classList.add("blurred");
+      });
+
+      overlay.addEventListener("mouseleave", () => {
+        body.classList.remove("blurred");
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="overlay">
     <div class="container">
-      <h1>RedactedRifle Systems</h1>
+      <h1>[REDACTED]rifle Systems</h1>
       <a class="button" href="https://glances.redactedrifle.com" target="_blank">Dashboard Login</a>
     </div>
   </div>
